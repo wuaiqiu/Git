@@ -15,7 +15,7 @@
 	git add [file]				#添加文件至暂存区
 
 	git commit [file] -m 'modifying'	#添加暂存区文件至git仓库
-						  [-a]	将工作区域文件加入暂存与git仓库
+						  [-a]	将工作区域【所有】文件加入暂存与git仓库
 
 	git status				#查看git状态; 
 						  [-s]	#查看简略信息 
