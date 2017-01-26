@@ -1,0 +1,24 @@
+				Git
+
+
+(1)安装后的全局配置
+	git config --global user.name 'yourname' 	#配置全局作者，用于区别
+	git config --global user.email 'youremail' 	#配置全局email
+
+
+(2)git的一般使用
+	mkdir [workdir]
+	cd [workdie]
+	git init 		#git初始化
+	git add [file]		#添加文件至暂存区
+	git commit [file]	#添加暂存区文件至git仓库
+
+
+(3)git的三大区域
+	working directory 	#工作区域
+	stage			#暂存区域
+	respository		#git仓库
+
+
+(4)
+
