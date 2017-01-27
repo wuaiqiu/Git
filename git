@@ -16,13 +16,26 @@
 
 	git commit [file] -m 'modifying'	#添加暂存区文件至git仓库
 						  [-a]	将工作区域【所有】文件加入暂存与git仓库
+						  [--amend] 修改head所指快照的修饰语		
 
 	git status				#查看git状态; 
 						  [-s]	#查看简略信息 
 							[git仓库与暂存区文件的区别][暂存区域与工作区文件的区别]
 				 			A:表示未添加(下级有上级没有) M:表示不相同(下级文件修改)
 				 			D:表示已删除(上级有下级没有) ?:表示未追踪(新添加的文件)
+							R:表示已重命名 U:发生冲突(在合并与stash)
+
+	git log					#查看git仓库历史快照
+						 [--online] #简要信息
+						 [--decorate]查看head指向的分支
+						 [--all]查看所有分支
 	
+	git rev-parse [HEAD]			#查看ID
+
+	git rm file				#删除工作区域与暂存区的文件
+					 	 [--cached|--staged]只删除暂存区文件
+
+	git mv file1 file2			#将工作区域与暂存区文件file1重命名为file2，没有cached参数
 
 (3)git的三大区域
 	working directory 	#工作区域
@@ -30,5 +43,39 @@
 	respository		#git仓库
 
 
-(4)
+(4)git回滚(覆盖)
+	git reset [HEAD|HEAD~n(0-)|ID]		#git仓库文件回滚至暂存区,git仓库head所指的快照依然存在
+						  [--mix]默认用法
+						  [--hard]git仓库回滚至暂存区，暂存区回滚至工作区
+						  [--soft]只改变给git仓库head所指的快照
 
+	git checkout (-- [file])                #暂存区文件回滚至工作区
+
+(5)git比较
+	git diff [file]				#比较工作区域与暂存区域
+	git diff --cached|--staged [file]       #比较暂存区域与git仓库
+	git diff ID|HEAD			#比较工作区域与git仓库
+	git diff ID ID 				#比较两个历史快照的区别
+
+(6)git分支管理
+	git branch				#列出所有分支
+	git branch newBranch			#创建分支
+	git checkout branchName			#切换分支
+	git branch -d branchName		#删除分支
+	git checkout -b branchName		#创建并切换分支
+	git merge branchName			#与当前分支合并,branchName还在
+
+(7)git的stash
+	git stash 				#将工作区的文件压入栈，并将工作区恢复git仓库的head状态
+	git stash list				#列出stash栈
+	git stash pop				#放出git仓库的stash第一个栈
+	git stash apply stash@{n}		#放出git仓库的stash第n个栈
+	git stash drop stash@{n}		#删除git仓库的stash第n个栈
+	git stash clear				#清空栈
+
+(8)commit对象
+	git cat-file -t HEAD|ID			#查看类型(commit对象---》tree(目录树)----》tree与blob(文件))
+	git cat-file -p HEAD|ID			#查看详细信息
+
+(9)tree-ish(树名)
+	HEAD  ID  HEAD^{tree}  HEAD:fileName   #用于定位

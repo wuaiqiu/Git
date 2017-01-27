@@ -1,0 +1,19 @@
+			GitHub
+
+
+
+(1)下载github的项目
+
+
+		git clone https://github.com/wuaiqiu/Git.git
+
+
+(2)上传github的项目
+		
+		ssh-keygen -t rsa -C "youremil(github)"
+		
+		copy the content of [id_rsa.pub] to the github [SSH keys]
+
+		git remote add origin https://wuaiqiu@github.com/wuaiqiu/Git.git
+
+	        git push origin master		
