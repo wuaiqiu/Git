@@ -4,6 +4,7 @@
 (1)安装后的全局配置
 	git config --global user.name 'yourname' 	#配置全局作者，用于区别
 	git config --global user.email 'youremail' 	#配置全局email
+	git config --global color.ui true		#配置全局是否有颜色
 
 
 (2)git的一般使用
