@@ -1,14 +1,26 @@
 				Git
 
 
-(1)安装后的全局配置
+(1)git的三大区域
+
+	working directory 		#工作区域
+
+	stage				#暂存区域
+
+	respository			#git仓库
+
+(2)安装后的全局配置
+
 	git config --global user.name 'yourname' 	#配置全局作者，用于区别
+
 	git config --global user.email 'youremail' 	#配置全局email
+
 	git config --global color.ui true		#配置全局是否有颜色
 
+(3)git的一般使用
 
-(2)git的一般使用
 	mkdir [workdir]
+
 	cd [workdie]
 
 	git init 				#git初始化
@@ -38,13 +50,8 @@
 
 	git mv file1 file2			#将工作区域与暂存区文件file1重命名为file2，没有cached参数
 
-(3)git的三大区域
-	working directory 	#工作区域
-	stage			#暂存区域
-	respository		#git仓库
-
-
 (4)git回滚(覆盖)
+
 	git reset [HEAD|HEAD~n(0-)|ID]		#git仓库文件回滚至暂存区,git仓库head所指的快照依然存在
 						  [--mix]默认用法
 						  [--hard]git仓库回滚至暂存区，暂存区回滚至工作区
@@ -53,30 +60,49 @@
 	git checkout (-- [file])                #暂存区文件回滚至工作区
 
 (5)git比较
+
 	git diff [file]				#比较工作区域与暂存区域
+
 	git diff --cached|--staged [file]       #比较暂存区域与git仓库
+
 	git diff ID|HEAD			#比较工作区域与git仓库
+
 	git diff ID ID 				#比较两个历史快照的区别
 
 (6)git分支管理
+
 	git branch				#列出所有分支
+
 	git branch newBranch			#创建分支
+
 	git checkout branchName			#切换分支
+
 	git branch -d branchName		#删除分支
+
 	git checkout -b branchName		#创建并切换分支
+
 	git merge branchName			#与当前分支合并,branchName还在
 
 (7)git的stash
+
 	git stash 				#将工作区的文件压入栈，并将工作区恢复git仓库的head状态
+
 	git stash list				#列出stash栈
+
 	git stash pop				#放出git仓库的stash第一个栈
+
 	git stash apply stash@{n}		#放出git仓库的stash第n个栈
+
 	git stash drop stash@{n}		#删除git仓库的stash第n个栈
+
 	git stash clear				#清空栈
 
 (8)commit对象
+
 	git cat-file -t HEAD|ID			#查看类型(commit对象---》tree(目录树)----》tree与blob(文件))
+
 	git cat-file -p HEAD|ID			#查看详细信息
 
 (9)tree-ish(树名)
+
 	HEAD  ID  HEAD^{tree}  HEAD:fileName   #用于定位
