@@ -12,4 +12,11 @@
 
 		git remote add origin https://wuaiqiu@github.com/wuaiqiu/Git.git
 
-	        git push origin master		
+	        git push origin master	
+
+(3)在安装vnc可能出错的解决办法
+
+	(gnome-ssh-askpass:3530): Gtk-WARNING **: cannot open display
+
+
+	unset SSH_ASKPASS	
